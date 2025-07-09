@@ -181,11 +181,35 @@
 <script type="module">
     import { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } from 'https://cdn.jsdelivr.net/npm/@google/generative-ai@latest/+esm';
 
-    const API_KEY = "AIzaSyDq6cnKHovBGaoPi7cQRFSdeM6X1cAY7t0"; 
+
+   // front-end (e.g. in your page’s <script> tag)
+async function getKey() {
+  try {
+    const res = await fetch('https://empty-dawn-0303.parbeshsharma6.workers.dev/');
+    
+    
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const { key } = await res.json();       // expects { key: ... }
+    return key;
+  } catch (err) {
+    console.error('Failed to fetch API key:', err);
+  }
+}
+
+// Since we used `defer` above, the DOM is already parsed:
+const API_KEY=await getKey();
+console.log(API_KEY);
+
+
+
+
+
+
+    // const API_KEY = ""; 
     const genAI = new GoogleGenerativeAI(API_KEY);
 
   
-    const username = "Sarthak";
+    const username = "Prabesh";
     const account_num = "980000000000";
 
     // API endpoints
@@ -238,7 +262,7 @@
 
        
         const model = genAI.getGenerativeModel({
-          model: "gemini-1.5-flash",
+          model: "gemini-2.5-flash",
           systemInstruction: {
             role: "system",
             parts: [{
@@ -274,6 +298,33 @@
     document.getElementById('generateBtn')?.addEventListener('click', generateContent);
   </script>
 <script src="function.js"></script>
+
+
+ <!-- 👇 AI Assistant Script from your teacher -->
+<script>
+  var vapiInstance = null;
+
+  const assistant = "514422ac-17eb-4fd4-9574-5c4141ba455e"; 
+  const apiKey = "ac7c44bb-56a9-4dd7-9097-fa0cba2d20cf"; 
+  const buttonConfig = {}; 
+
+  (function (d, t) {
+    var g = document.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    g.src = "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js";
+    g.defer = true;
+    g.async = true;
+    s.parentNode.insertBefore(g, s);
+
+    g.onload = function () {
+      vapiInstance = window.vapiSDK.run({
+        apiKey: apiKey,
+        assistant: assistant,
+        config: buttonConfig,
+      });
+    };
+  })(document, "script");
+</script>
 
 </body>
 </html>

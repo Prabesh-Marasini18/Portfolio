@@ -48,3 +48,29 @@ window.addEventListener("scroll", () => {
 scrollTopBtn.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
+
+
+// AI Assistant
+  // var vapiInstance = null;
+  // const assistant = "<514422ac-17eb-4fd4-9574-5c4141ba455e>"; 
+  // const apiKey = "<ac7c44bb-56a9-4dd7-9097-fa0cba2d20cf>"; 
+  // const buttonConfig = {}; 
+
+  // (function (d, t) {
+  //   var g = document.createElement(t),
+  //     s = d.getElementsByTagName(t)[0];
+  //   g.src =
+  //     "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js";
+  //   g.defer = true;
+  //   g.async = true;
+  //   s.parentNode.insertBefore(g, s);
+
+  //   g.onload = function () {
+  //     vapiInstance = window.vapiSDK.run({
+  //       apiKey: apiKey, 
+  //       assistant: assistant, 
+  //       config: buttonConfig, 
+  //     });
+  //   };
+  // })(document, "script");
